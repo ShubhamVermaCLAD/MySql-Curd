@@ -1,9 +1,9 @@
 const express=require('express');
 const curdOperation=require('./routers/routes');
 const login=require('./routers/loginRoutes');
+const envConfig=require('./config/envConfig.json');
 const app = express();
-const PORT=3000;
-
+const PORT=envConfig[process.env.NODE_ENV || 'development'].node_port;
 //Body Parser Middleware
 app.use(express.json());
 
